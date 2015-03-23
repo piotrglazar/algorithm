@@ -1,0 +1,76 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'groovy'
+apply plugin: 'jacoco'
+apply plugin: 'sonar-runner'
+apply plugin: 'findbugs'
+apply plugin: 'checkstyle'
+apply plugin: 'pmd'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile("com.google.guava:guava:18.0")
+
+//    testCompile 'junit:junit:4.12'
+    testCompile "org.codehaus.groovy:groovy-all:2.4.1"
+    testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
+
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+
+jacoco {
+    toolVersion = '0.7.4.+'
+}
+
+jacocoTestReport {
+    reports {
+        html.destination "$buildDir/reports/jacoco"
+        xml.enabled = true
+        html.enabled = true
+    }
+}
+
+sonarRunner {
+    toolVersion = '2.4'
+}
+
+sourceCompatibility = 1.8
+
+
+checkstyle {
+    toolVersion = '6.3'
+    ignoreFailures = true
+}
+
+pmd {
+    ignoreFailures = true
+}
+
+findbugs {
+    toolVersion = '3.0.0'
+    effort = 'max'
+    ignoreFailures = true
+}
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
