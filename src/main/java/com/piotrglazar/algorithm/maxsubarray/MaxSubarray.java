@@ -24,11 +24,7 @@ public class MaxSubarray {
                 }
             } else {
                 // save the end of current max if it is the greatest max
-                if (currentSum > currentMax) {
-                    maxEnd = i;
-                    currentMax = currentSum;
-                    maxStart = currentStart;
-                }
+                confrontCurrentMaxWithAbsoluteMax(i);
                 // continue, maybe it pays off to eat current negative value
                 currentSum += value;
             }
