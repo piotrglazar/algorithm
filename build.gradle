@@ -1,3 +1,12 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.3.1")
+    }
+}
+
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'groovy'
@@ -6,6 +15,7 @@ apply plugin: 'sonar-runner'
 apply plugin: 'findbugs'
 apply plugin: 'checkstyle'
 apply plugin: 'pmd'
+apply plugin: 'com.github.kt3k.coveralls'
 
 repositories {
     jcenter()

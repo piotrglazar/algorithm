@@ -8,3 +8,13 @@ Max subarray
 Given an int array (or list) find its maximum subarray. It is a consistent fragment with the maximum sum of elements.
 For example:
 given [4, 1, -3, -3, 3, -2, 6] the program should return 7.
+
+Hero
+----
+A brave hero fights monsters. Each monster guards a chest with a health potion inside. Can he defeat all monsters?
+Assuming that he has 5 HP at the beginning and three monsters:
+3 1
+4 8
+8 3
+The optimal fight order is: 2, 3, 1
+
