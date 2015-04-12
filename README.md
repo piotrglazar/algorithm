@@ -18,3 +18,7 @@ Assuming that he has 5 HP at the beginning and three monsters:
 8 3
 The optimal fight order is: 2, 3, 1
 
+Puzzle
+------
+There is a board 3 x n pieces. We try to cover that board with 2 x 1 puzzles. The program should calculate the
+number of ways we can cover the board. Given the board 3 x 2 we can cover it in three ways.
