@@ -1,8 +1,11 @@
 package com.piotrglazar.algorithm.hero;
 
-import com.google.common.collect.Lists;
-
-import java.util.*;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
 
 import static java.util.stream.Collectors.groupingBy;
 
@@ -14,7 +17,7 @@ public class Hero {
         this.life = life;
         PriorityQueue<Monster> goodMonsters = new PriorityQueue<>(Comparator.comparingInt(Monster::getPower));
         PriorityQueue<Monster> badMonsters = new PriorityQueue<>(Comparator.comparingInt(Monster::getPower).reversed());
-        List<Integer> fightOrder = Lists.newLinkedList();
+        List<Integer> fightOrder = new LinkedList<>();
 
         setupMonsters(monsters, goodMonsters, badMonsters);
 
