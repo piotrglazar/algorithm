@@ -22,3 +22,13 @@ Puzzle
 ------
 There is a board 3 x n pieces. We try to cover that board with 2 x 1 puzzles. The program should calculate the
 number of ways we can cover the board. Given the board 3 x 2 we can cover it in three ways.
+
+Moonwalk
+--------
+Michael Jackson dances on the set of Billie Jean music video. He has prepared a sequence of moves:
+- G (up)
+- D (down)
+- P (right)
+- L (left)
+We want to know whether or not he can reach a certain point on the floor. For example, can he reach a point (6, 3)
+with a sequence of dance moves "GGPPD"? The answer is yes.
