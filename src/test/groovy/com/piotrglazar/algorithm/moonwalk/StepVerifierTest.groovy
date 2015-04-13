@@ -8,7 +8,7 @@ class StepVerifierTest extends Specification {
     StepVerifier stepVerifier = new StepVerifier(new PositionCalculator())
 
     @Unroll
-    def "should verify that position will be reached"() {
+    def "should verify that position #x #y will be reached for moves #rawMoves: #result"() {
         when:
         def canStepOnField = stepVerifier.canStepOnField(x, y, rawMoves)
 
@@ -16,9 +16,14 @@ class StepVerifierTest extends Specification {
         canStepOnField == result
 
         where:
-        x | y | rawMoves || result
-        6 | 3 | "GGPPD"  || "TAK"
-        5 | 3 | "GGPPD"  || "NIE"
-        8 | 3 | "GGPPD"  || "NIE"
+         x  |  y  | rawMoves || result
+         6  |  3  | "GGPPD"  || "TAK"
+         5  |  3  | "GGPPD"  || "NIE"
+         8  |  3  | "GGPPD"  || "NIE"
+         0  |  0  | ""       || "TAK"
+         3  |  0  | "GPPDP"  || "TAK"
+         0  |  2  | "DPGLGG" || "TAK"
+        -6  | -3  | "DLLPLG" || "TAK"
+        -1  | -4  | "DLLPLG" || "NIE"
     }
 }

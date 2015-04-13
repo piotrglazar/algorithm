@@ -25,14 +25,18 @@ public class StepVerifier {
         int positionY = position.getY();
         return canReach(x, positionX)
                 && canReach(y, positionY)
-                && numberOfStepsRequired(x, positionX) == numberOfStepsRequired(y, positionY);
+                && numberOfStepsRequiredIsEqual(numberOfStepsRequired(x, positionX), numberOfStepsRequired(y, positionY));
+    }
+
+    private boolean numberOfStepsRequiredIsEqual(int s1, int s2) {
+        return s1 == 0 || s2 == 0 || s1 == s2;
     }
 
     private boolean canReach(int expected, int actual) {
-        return expected % actual == 0;
+        return actual == 0 || expected % actual == 0;
     }
 
     private int numberOfStepsRequired(int expected, int actual) {
-        return expected / actual;
+        return actual == 0 ? 0 : expected / actual;
     }
 }
