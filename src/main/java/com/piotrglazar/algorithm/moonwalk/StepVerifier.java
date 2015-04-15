@@ -33,8 +33,8 @@ public class StepVerifier {
                 && numberOfStepsRequiredIsEqual(numberOfStepsRequired(xDiff, deltaX), numberOfStepsRequired(yDiff, deltaY));
     }
 
-    private boolean numberOfStepsRequiredIsEqual(double s1, double s2) {
-        return s1 == 0.0 || s2 == 0.0 || s1 == s2;
+    private boolean numberOfStepsRequiredIsEqual(long s1, long s2) {
+        return s1 == Long.MIN_VALUE || s2 == Long.MIN_VALUE || s1 == s2;
     }
 
     private boolean canReach(long left, long right, long difference, long delta) {
