@@ -28,9 +28,12 @@ class StepVerifierTest extends Specification {
          1  |  2  | "GGPPD"  || "TAK"
          3  |  4  | "GGPPD"  || "NIE"
          0  |  0  | "GPDL"   || "TAK"
+         2  |  2  | "GPDL"   || "NIE"
+        -1  | -1  | "GPDL"   || "NIE"
          0  |  4  | "PPGGLL" || "TAK"
          0  |  5  | "PPGGLL" || "NIE"
          4  |  0  | "GGPPDD" || "TAK"
+         3  |  2  | "GGPPDD" || "TAK"
          5  |  0  | "GGPPDD" || "NIE"
     }
 }
