@@ -92,4 +92,24 @@ class StepVerifierTest extends Specification {
          4  |  0  | "GGPPDD" || "TAK"
          5  |  0  | "GGPPDD" || "NIE"
     }
+
+    @Unroll
+    def "should verify that position #x #y will be reached for moves #rawMoves: #result for closed moves"() {
+        when:
+        def canStepOnField = stepVerifier.canStepOnField(x, y, rawMoves)
+
+        then:
+        canStepOnField == result
+
+        where:
+         x  |  y  | rawMoves       || result
+         1  |  1  | "PPPGGGLLLDDD" || "NIE"
+         6  |  6  | "PPPGGGLLLDDD" || "NIE"
+         3  |  3  | "PPPGGGLLLDDD" || "TAK"
+         0  |  0  | "PPPGGGLLLDDD" || "TAK"
+        -1  | -1  | "LLLDDDPPPGGG" || "NIE"
+        -6  | -6  | "LLLDDDPPPGGG" || "NIE"
+        -3  | -3  | "LLLDDDPPPGGG" || "TAK"
+         0  |  0  | "LLLDDDPPPGGG" || "TAK"
+    }
 }
