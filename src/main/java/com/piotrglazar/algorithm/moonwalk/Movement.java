@@ -2,5 +2,5 @@ package com.piotrglazar.algorithm.moonwalk;
 
 public interface Movement {
 
-    void move(Position position);
+    Position move(Position position);
 }
